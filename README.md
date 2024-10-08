@@ -49,6 +49,7 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - Fluid typography and spacing
+- Accessible form controls
 
 ### What I learned
 
@@ -71,6 +72,7 @@ Here are some of the resources that I made use of:
 Specific areas that the solution should be improved (known issues):
 
 - Refine the block and inline spacing within each of the two screens. In general, it seems like the block spacing between the heading and the text content should be smaller than the block spacing between other elements on each screen. Maybe they (the headings + text) should be in a container to represent that they are connected?
+- The ratings number text doesn't seem perfectly vertically centered. Figure out what's going on with that. Maybe the absolutely positioned (but hidden) radio buttons are causing that?
 
 More general ideas I want to consider:
 
