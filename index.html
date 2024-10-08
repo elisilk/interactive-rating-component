@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+
+    <title>Frontend Mentor | Interactive rating component</title>
+  </head>
+  <body>
+
+    <header>
+      <h1 class="visually-hidden">Interactive rating component</h1>
+    </header>
+
+    <main class="main">
+      <form  id="rating-screen" class="screen">
+        <!-- Rating state start -->
+        <div class="star-icon"><img class="star-icon" src="images/icon-star.svg" alt="star icon"></div>
+        <h2>How did we do?</h2>
+        <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+        <fieldset class="ratings-group">
+          <legend class="visually-hidden">Select a rating:</legend>
+          <label for="rating-1"><input type="radio" name="rating" id="rating-1"  value="1" required> 1</label>
+          <label for="rating-2"><input type="radio" name="rating" id="rating-2" value="2"> 2</label>
+          <label for="rating-3"><input type="radio" name="rating" id="rating-3" value="3"> 3</label>
+          <label for="rating-4"><input type="radio" name="rating" id="rating-4" value="4"> 4</label>
+          <label for="rating-5"><input type="radio" name="rating" id="rating-5" value="5"> 5</label>
+        </fieldset>
+        <button id="submit-button">Submit</button>
+        <!-- Rating state end -->
+      </form>
+
+      <section id="thank-you-screen" class="screen screen--hidden">
+        <!-- Thank you state start -->
+        <img class="thank-you-illustration" src="images/illustration-thank-you.svg" alt="thank you illustration">
+        <p class="your-rating">You selected <span id="your-rating-value"></span> out of 5</p>
+        <h2>Thank you!</h2>
+        <p>We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+        <!-- Thank you state end -->
+      </section>
+    </main>
+
+  </body>
+</html>

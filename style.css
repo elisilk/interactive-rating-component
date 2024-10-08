@@ -1,0 +1,300 @@
+:root {
+  /* Colors */
+  --clr-orange: hsl(25, 97%, 53%); /* Orange #FC7614 */
+  --clr-pure-white: hsl(0, 0%, 100%); /* White #FFFFFF */
+  --clr-light-grey: hsl(217, 12%, 63%); /* Light Grey #969FAD */
+  --clr-dark-blue: hsl(213, 19%, 18%); /* Dark Blue #262E38 */
+  --clr-very-dark-blue: hsl(216, 12%, 8%); /* Very Dark Blue #131518 */
+
+  --clr-screen-bg: radial-gradient(circle at top, #232a34 0%, #181e27 100%);
+
+  /* Typography */
+
+  --ff-sans: "Overpass", sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* Fluid typography */
+  /* Mobile (m) 24rem (384px) -> Desktop (d) 28rem (448px) */
+
+  --fs-400: clamp(
+    0.875rem,
+    0.5rem + 1.5625vw,
+    0.9375rem
+  ); /* Body 15px/24px (0px ls) / Regular <- (m) 14px/22px */
+  --fs-500: var(
+    --fs-400
+  ); /* Heading (Medium) 15/1 (2px ls) / Bold <- 14px/1 (1.87px ls) */
+  --fs-600: clamp(
+    0.875rem,
+    0.125rem + 3.125vw,
+    1rem
+  ); /* Rating 16/24 (0.2px ls) / Bold <- (m) 14px/24px (.17px ls) */
+  --fs-800: clamp(
+    1.5rem,
+    0rem + 6.25vw,
+    1.75rem
+  ); /* Heading (Large) 28/1 (0px ls) / Bold <- (m) 24px */
+
+  /* -- Rating screen -- */
+
+  /* Block spacing */
+  /* container -> star --> 24px -> 32px */
+  /* star -> heading --> 16px -> 30px */
+  /* heading -> text --> 10px -> 15px */
+  /* text -> ratings --> 24px -> 24px */
+  /* ratings -> button --> 24px -> 32px */
+  /* button -> container --> 32px -> 32px */
+
+  /* container -> content --> 24px -> 32px */
+  /* Inline spacing */
+  /* ratings -> ratings --> 17px -> 22px */
+  /* content -> container --> ?px -> ?px */
+
+  /* -- Thank you screen -- */
+
+  /* Block spacing */
+  /* ?? */
+
+  /* Inline spacing */
+  /* ?? */
+}
+
+/* -- Global styling -- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-regular);
+  min-height: 100vb;
+  background-color: var(--clr-very-dark-blue);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+/* -- Layout components -- */
+
+.main {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.screen {
+  color: var(--clr-light-grey);
+  background: var(--clr-screen-bg);
+  max-width: 25.75rem; /* 412px */
+  border-radius: clamp(
+    0.9375rem,
+    -4.6875rem + 23.4375vw,
+    1.875rem
+  ); /* 15px (m) -> 30px (d) */
+  padding-inline: clamp(
+    1.5rem,
+    -1.5rem + 12.5vw,
+    2rem
+  ); /* 24px (m) -> 32px (d) */
+  padding-block: clamp(1.5rem, -1.5rem + 12.5vw, 2rem) 2rem; /* start: 24px (m) -> 32px (d); end: 32px */
+  display: grid;
+  gap: 1.5rem;
+}
+
+.screen--hidden {
+  display: none;
+}
+
+#thank-you-screen {
+  text-align: center;
+  padding-block: clamp(
+    2.125rem,
+    -2rem + 17.1875vw,
+    2.8125rem
+  ); /* start: 34px (m) -> 45px (d) */
+}
+
+/* -- Images at the top of the screen -- */
+
+.star-icon {
+  --star-size: clamp(2.5rem, -0.5rem + 12.5vw, 3rem); /* 40px -> 48px */
+  background-color: var(--clr-dark-blue);
+  border-radius: 50%;
+  height: var(--star-size);
+  width: var(--star-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-icon img {
+  aspect-ratio: 16.75 / 16;
+  height: clamp(
+    0.833125rem,
+    -0.16812499999999997rem + 4.171875vw,
+    1rem
+  ); /* 13.33px -> 16px */
+  width: auto;
+}
+
+.thank-you-illustration {
+  display: inline-block;
+  margin-inline: auto;
+  width: clamp(9rem, 2.25rem + 28.125vw, 10.125rem); /* 144px -> 162px */
+  height: auto;
+}
+
+/* -- Headings -- */
+
+.screen h2 {
+  color: var(--clr-pure-white);
+  font-size: var(--fs-800);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+/* -- Body text -- */
+
+.screen p {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-regular);
+  line-height: clamp(
+    1.375rem,
+    0.625rem + 3.125vw,
+    1.5rem
+  ); /* 22px (m) -> 24px (d) */
+  text-wrap: pretty;
+}
+
+.screen p.your-rating {
+  height: 2rem; /* 32px */
+  margin-inline: auto;
+  padding-inline: clamp(0.75rem, -2.25rem + 12.5vw, 1.25rem); /* 12px -> 20px */
+  line-height: 1;
+  color: var(--clr-orange);
+  background-color: var(--clr-dark-blue);
+  border-radius: 1.40625rem; /* 22.5px */
+  display: flex;
+  align-items: center;
+}
+
+span#your-rating-value {
+  padding-inline: 0.4ch;
+}
+
+/* -- Ratings -- */
+
+.ratings-group {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratings-group label {
+  --ratings-size: clamp(
+    2.625rem,
+    -0.75rem + 14.0625vw,
+    3.1875rem
+  ); /* 42px -> 51px */
+  color: var(--clr-light-grey);
+  background-color: var(--clr-dark-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: var(--ratings-size);
+  height: var(--ratings-size);
+
+  font-size: var(--fs-600);
+  font-weight: var(--fw-bold);
+  line-height: 1.5rem; /* 24px */
+  letter-spacing: clamp(
+    0.010625rem,
+    -0.0006249999999999988rem + 0.046875vw,
+    0.0125rem
+  ); /* .17px -> .2px */
+}
+
+.ratings-group input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  width: 1ch;
+  height: 1ch;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  outline: none;
+  border: none;
+}
+
+.ratings-group label:hover {
+  color: var(--clr-dark-blue);
+  background-color: var(--clr-orange);
+}
+
+.ratings-group label:has(input[type="radio"]:focus),
+.ratings-group label:has(input[type="radio"]:checked) {
+  color: var(--clr-dark-blue);
+  background-color: var(--clr-pure-white);
+}
+
+/* -- Button -- */
+
+button {
+  font-family: inherit;
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: clamp(
+    0.116875rem,
+    0.06812500000000005rem + 0.20312499999999983vw,
+    0.125rem
+  ); /* 1.87px -> 2px */
+  text-transform: uppercase;
+
+  color: var(--clr-very-dark-blue);
+  background-color: var(--clr-orange);
+  border: none;
+  border-radius: 1.40625rem; /* 22.5px */
+  height: 2.8125rem; /* 45px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover,
+button:focus {
+  color: var(--clr-very-dark-blue);
+  background-color: var(--clr-pure-white);
+  outline: none;
+}
+
+/* ----- Visually hidden utility begin ----- */
+
+/* Source: https://www.scottohara.me/blog/2023/03/21/visually-hidden-hack.html */
+/* sometimes referred to as .sr-only */
+
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ----- Visually hidden utility end ----- */
